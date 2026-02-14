@@ -1,0 +1,20 @@
+@extends('layout.app')
+
+@section('content')
+    <section class="relative w-full h-[70vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
+        <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
+        <div class="absolute inset-0 bg-red-950/90"></div>
+        <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
+            <div class="w-full md:w-1/2 text-white space-y-6">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Desarrollamos</h1>
+                <p class="text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium">tu solución digital innovadora</p>
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Transforma tu negocio con tecnología a tu medida! Desarrollamos sitios web con contenido atractivo y actualizable, plataformas digitales y soluciones personalizadas para que tu empresa crezca y destaque en el mundo digital.</p>
+                <p class="text-xl md:text-3xl text-white drop-shadow font-medium">Planes Web desde <span class="text-2xl md:text-3xl text-red-600">$19.990/mes</span></p>
+                <a href="" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition duration-200">Cotiza tu Plan Web</a>
+                </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="{{ asset('img/home/desktop.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
+            </div>
+        </div>
+    </section>
+@endsection

@@ -19,9 +19,9 @@
     <body class="flex flex-col min-h-screen bg-zinc-900 text-white">
         @include('layout.components.header')
 
-        <main class="flex-grow">
-            <div class="w-full flex justify-center px-4">
-                <div class="w-full max-w-7xl">
+        <main class="flex-1">
+            <div class="w-full flex justify-center">
+                <div class="w-full">
                     @yield('content')
                 </div>
             </div>
