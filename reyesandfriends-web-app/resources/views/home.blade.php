@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title', 'Reyes&Friends - Desarrollo web, apps y software a medida')
-@section('description', 'Desarrollamos páginas web, aplicaciones móviles y software a medida para impulsar tu negocio al siguiente nivel. Soluciones digitales innovadoras, planes web desde $19.990/mes. ¡Transforma tu empresa hoy!')
+@section('description', 'Desarrollamos páginas web, aplicaciones móviles y software a medida para impulsar tu negocio al siguiente nivel. Soluciones digitales innovadoras, planes web desde $' . number_format($cheaperWebPlan->price_clp, 0, ',', '.') . '/mes. ¡Transforma tu empresa hoy!')
 @section('keywords', 'desarrollo web, software a medida, aplicaciones móviles, diseño web, soluciones digitales, empresa, negocios, tecnología, chile, planes web')
 
 @section('content')
@@ -13,7 +13,7 @@
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Desarrollamos</h1>
                 <p class="text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium">tu solución digital innovadora</p>
                 <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Transforma tu negocio con tecnología a tu medida! Desarrollamos sitios web con contenido atractivo y actualizable, plataformas digitales y soluciones personalizadas para que tu empresa crezca y destaque en el mundo digital.</p>
-                <p class="text-xl md:text-3xl text-white drop-shadow font-medium">Planes Web desde <span class="text-2xl md:text-3xl text-red-600">$19.990/mes</span></p>
+                <p class="text-xl md:text-3xl text-white drop-shadow font-medium">Planes Web desde <span class="text-2xl md:text-3xl text-red-600">${{ number_format($cheaperWebPlan->price_clp, 0, ',', '.') }}/mes</span></p>
                 <a href="" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition">Cotiza tu Plan Web</a>
                 </div>
             <div class="w-full md:w-1/2 flex justify-center">
