@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Emprendedor 2026",
+        "slug": "emprendedor-2026",
+        "description": "Para pequeñas empresas o profesionales que desean una presencia en línea efectiva y asequible. Este proyecto está diseñado para captar la atención de tus visitantes y convertirlos en clientes potenciales. Rápido, eficiente y atractivo.",
+        "demo_url": "https://demo.reyesandfriends.cl/emprendedor-2026",
+        "price_clp": 19990,
+        "number_of_months": 12,
+        "final_price_clp": 239880,
+        "images": [
+            "https://axm3vdh15xem.objectstorage.sa-valparaiso-1.oci.customer-oci.com/n/axm3vdh15xem/b/reyesandfriends-chile/o/demo_images%2Femprendedor_2026%2Fhome.png",
+            "https://axm3vdh15xem.objectstorage.sa-valparaiso-1.oci.customer-oci.com/n/axm3vdh15xem/b/reyesandfriends-chile/o/demo_images%2Femprendedor_2026%2Fabout-section.png",
+            "https://axm3vdh15xem.objectstorage.sa-valparaiso-1.oci.customer-oci.com/n/axm3vdh15xem/b/reyesandfriends-chile/o/demo_images%2Femprendedor_2026%2Fclients-section.png",
+            "https://axm3vdh15xem.objectstorage.sa-valparaiso-1.oci.customer-oci.com/n/axm3vdh15xem/b/reyesandfriends-chile/o/demo_images%2Femprendedor_2026%2Fcontact-section.png"
+        ],
+        "features": [
+            "Diseño moderno y atractivo",
+            "Optimización SEO básica y posicionamiento en buscadores",
+            "Formulario de contacto con validación y respuesta automática por correo electrónico",
+            "Integración con Google Maps (direcciones y ubicación)",
+            "Adaptabilidad a dispositivos móviles y tabletas (responsive design)"
+        ],
+        "usages": [
+            "Presentación de servicios o productos",
+            "Captación de clientes potenciales",
+            "Portafolio profesional",
+            "Promoción de eventos o lanzamientos"
+        ]
+    }
+]
