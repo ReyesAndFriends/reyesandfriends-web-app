@@ -26,7 +26,7 @@ class WebPlanesSeeder extends Seeder
                     'demo_url' => $plan['demo_url'] ?? null,
                     'price_clp' => $plan['price_clp'],
                     'number_of_months' => $plan['number_of_months'],
-                    'final_price_clp' => $plan['final_price_clp'],
+                    'final_price_clp' => $plan['price_clp'] * $plan['number_of_months'],
                 ]);
 
                 // Insertar imágenes asociadas
