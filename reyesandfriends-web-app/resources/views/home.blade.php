@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@section('title', 'Reyes&Friends - Desarrollo web, apps y software a medida')
+@section('description', 'Desarrollamos páginas web, aplicaciones móviles y software a medida para impulsar tu negocio al siguiente nivel. Soluciones digitales innovadoras, planes web desde $19.990/mes. ¡Transforma tu empresa hoy!')
+@section('keywords', 'desarrollo web, software a medida, aplicaciones móviles, diseño web, soluciones digitales, empresa, negocios, tecnología, chile, planes web')
+
 @section('content')
     <section class="relative w-full h-[70vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
         <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
