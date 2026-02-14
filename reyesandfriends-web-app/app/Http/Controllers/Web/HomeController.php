@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $services = Service::all();
+
+        return view('home', compact('services'));
     }
 }

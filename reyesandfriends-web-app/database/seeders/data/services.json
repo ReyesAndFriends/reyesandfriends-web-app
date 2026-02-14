@@ -28,13 +28,6 @@
             "icon": "fa-shopping-cart"
         },
         {
-            "name": "Entretenimiento y más",
-            "slug": "entertainment",
-            "image": "/img/services/entertainment.jpg",
-            "description": "Realizamos páginas web, servicios y aplicaciones para la industria del entretenimiento, tales como música, cine, videojuegos y más.",
-            "icon": "fa-gamepad"
-        },
-        {
             "name": "Hosting Minecraft (Servidores Minecraft)",
             "slug": "minecraft-hosting",
             "image": "/img/services/hosting-minecraft.jpg",
