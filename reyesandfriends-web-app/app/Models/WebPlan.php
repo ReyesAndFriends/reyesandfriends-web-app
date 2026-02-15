@@ -30,4 +30,9 @@ class WebPlan extends Model
     {
         return $this->hasMany(WebPlanUsage::class);
     }
+
+    public function interested()
+    {
+        return $this->hasMany(WebPlanInterested::class);
+    }
 }

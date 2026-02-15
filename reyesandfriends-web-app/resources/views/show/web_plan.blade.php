@@ -73,7 +73,7 @@
 						<a href="{{ $webPlan->demo_url }}" target="_blank" rel="noopener" class="inline-block mb-4 text-red-400 hover:text-red-600 underline font-semibold">Ver demo en vivo</a>
 					@endif
 
-                    <a href="" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition text-center ">Me Interesa <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="{{ route('web_plans.interest_form', ['slug' => $webPlan->slug]) }}" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition text-center ">Me Interesa <i class="fas fa-arrow-right ml-2"></i></a>
 
 				</div>
 			</div>
