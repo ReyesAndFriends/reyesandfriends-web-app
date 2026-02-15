@@ -9,7 +9,7 @@ use App\Models\WebPlanImage;
 use App\Models\WebPlanFeature;
 use App\Models\WebPlanUsage;
 
-class WebPlanesSeeder extends Seeder
+class WebPlansSeeder extends Seeder
 {
     /**
      * Run the database seeds.
