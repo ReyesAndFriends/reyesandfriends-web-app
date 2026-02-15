@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-red-950/90"></div>
         <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
             <div class="w-full md:w-1/2 flex justify-center">
-                <img src="{{ asset('img/home/desktop.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/web_plans/web_plans.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
             </div>
             <div class="w-full md:w-1/2 text-white space-y-6">
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Cotiza tu Plan Web</h1>
