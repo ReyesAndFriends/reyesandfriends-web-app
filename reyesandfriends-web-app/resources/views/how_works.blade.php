@@ -9,12 +9,12 @@
         <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
         <div class="absolute inset-0 bg-red-950/90"></div>
         <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
-            <div class="w-full md:w-1/2 text-white space-y-6">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">¿Cómo Funcionan Nuestros Servicios?</h1>
-                <p class="text-1xl md:text-2xl text-red-600 mb-6 drop-shadow font-medium">Lo que usted necesita, nos encargamos.</p>
-                <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Ofrecemos dos opciones: contratar uno de nuestros <a href="{{ route('web_plans') }}"><strong class="text-red-700 hover:underline">Planes Web Personalizados</strong></a> o solicitar una cotización a medida. Nuestro equipo entiende sus necesidades y crea soluciones digitales que impulsan su negocio.</p>
+            <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-right" data-aos-duration="1200">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">¿Cómo Funcionan Nuestros Servicios?</h1>
+                <p class="text-1xl md:text-2xl text-red-600 mb-6 drop-shadow font-medium" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">Lo que usted necesita, nos encargamos.</p>
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-in-out" data-aos-duration="1200">Ofrecemos dos opciones: contratar uno de nuestros <a href="{{ route('web_plans') }}"><strong class="text-red-700 hover:underline">Planes Web Personalizados</strong></a> o solicitar una cotización a medida. Nuestro equipo entiende sus necesidades y crea soluciones digitales que impulsan su negocio.</p>
             </div>
-            <div class="w-full md:w-1/2 flex justify-center">
+            <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1200">
                 <img src="{{ asset('img/how_works/ilustration.png') }}" alt="Proceso de trabajo" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
             </div>
         </div>

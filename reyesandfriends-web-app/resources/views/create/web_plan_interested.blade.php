@@ -6,14 +6,16 @@
 
 @section('content')
 	<section class="py-16">
-		<div class="container mx-auto px-6">
-			<div class="max-w-screen-xl max-md:max-w-xl mx-auto bg-black py-8 px-12 rounded-lg shadow-lg">
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 lg:gap-x-12">
-					<div class="lg:col-span-2">
-						<div>
-							<h2 class="text-2xl text-white font-semibold mb-6 text-center">Cotizar Plan Web</h2>
-							<p class="text-white mb-6">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
-                            <form id="web-plan-interested-form" autocomplete="off" novalidate action="{{ route('web_plans.interest_store', $webPlan->slug) }}" method="POST">
+        <div class="container mx-auto px-6">
+            <div class="max-w-screen-xl max-md:max-w-xl mx-auto bg-black py-8 px-12 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 lg:gap-x-12">
+                    <div class="lg:col-span-2">
+                        <div>
+                            <h2 class="text-2xl text-white font-semibold mb-6 text-center" data-aos="fade-down" data-aos-delay="200">Cotizar Plan Web</h2>
+                            <p class="text-white mb-6" data-aos="fade-up" data-aos-delay="400">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
+                                <h2 class="text-2xl text-white font-semibold mb-6 text-center" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">Cotizar Plan Web</h2>
+                                <p class="text-white mb-6" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
+                            <form id="web-plan-interested-form" autocomplete="off" novalidate action="{{ route('web_plans.interest_store', $webPlan->slug) }}" method="POST" data-aos="zoom-in" data-aos-delay="600">
                                 @csrf
                                 <div class="grid lg:grid-cols-2 gap-y-6 gap-x-4">
                                     <div class="col-span-1">

@@ -8,15 +8,15 @@
     <section class="relative w-full h-[70vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
         <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
         <div class="absolute inset-0 bg-red-950/90"></div>
-        <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
-            <div class="w-full md:w-1/2 flex justify-center">
-                <img src="{{ asset('img/contact/ilustration.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
-            </div>
-            <div class="w-full md:w-1/2 text-white space-y-6">
-                <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Contacto</h1>
-                <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Estamos aquí para ayudarte. Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros.</p>
-            </div>
-        </div>
+			<div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
+				<div class="w-full md:w-1/2 flex justify-center" data-aos="fade-right" data-aos-duration="1200">
+					<img src="{{ asset('img/contact/ilustration.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
+				</div>
+				<div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-left" data-aos-duration="1200">
+					<h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">Contacto</h1>
+					<p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">Estamos aquí para ayudarte. Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros.</p>
+				</div>
+			</div>
     </section>
 
 	<section class="py-16">

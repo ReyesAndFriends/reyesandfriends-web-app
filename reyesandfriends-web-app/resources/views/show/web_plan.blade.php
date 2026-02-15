@@ -8,7 +8,7 @@
 	<section class="py-16">
 		<div class="container mx-auto px-6">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 p-12 items-start bg-zinc-900 rounded-xl">
-				<div class="flex flex-col justify-center">
+                <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-duration="1000">
 					@if($webPlan->images && count($webPlan->images) > 0)
 						<div class="flex flex-col gap-4">
 							<div class="w-full aspect-[16/9] mb-2">
@@ -33,47 +33,47 @@
 						</div>
 					@endif
 				</div>
-				<div class="flex flex-col justify-center">
-					<h1 class="text-4xl md:text-5xl text-white mb-4 font-bold">
+				<div class="flex flex-col justify-center" data-aos="fade-left" data-aos-duration="1000">
+					   <h1 class="text-4xl md:text-5xl text-white mb-4 font-bold" data-aos="zoom-in" data-aos-duration="800">
 						Plan <span class="text-red-600">{{ $webPlan->name }}</span>
 					</h1>
-					<h2 class="text-2xl text-white mb-6 font-semibold">
+					   <h2 class="text-2xl text-white mb-6 font-semibold" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
 						${{ number_format($webPlan->price_clp, 0, ',', '.') }}/mes
 						@if($webPlan->number_of_months && $webPlan->final_price_clp)
 							<span class="block text-base text-gray-400 mt-1">Durante {{ $webPlan->number_of_months }} meses</span>
 						@endif
 					</h2>
-					<p class="text-lg text-gray-200 mb-6">
+					   <p class="text-lg text-gray-200 mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
 						{{ $webPlan->description }}
 					</p>
 
-					@if($webPlan->features())
-						<div class="mb-6">
-							<h3 class="text-xl text-white font-semibold mb-2">Características principales:</h3>
-							<ul class="list-disc list-inside text-gray-200">
-								@foreach($webPlan->features as $feature)
-									<li>{{ $feature->feature }}</li>
-								@endforeach
-							</ul>
-						</div>
+					   @if($webPlan->features())
+						   <div class="mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+							   <h3 class="text-xl text-white font-semibold mb-2">Características principales:</h3>
+							   <ul class="list-disc list-inside text-gray-200">
+								   @foreach($webPlan->features as $feature)
+									   <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ 700 + ($loop->index * 100) }}">{{ $feature->feature }}</li>
+								   @endforeach
+							   </ul>
+						   </div>
 					@endif
 
-					@if($webPlan->usages())
-						<div class="mb-6">
-							<h3 class="text-xl text-white font-semibold mb-2">Usos recomendados:</h3>
-							<ul class="list-disc list-inside text-gray-200">
-								@foreach($webPlan->usages as $usage)
-									<li>{{ $usage->usage }}</li>
-								@endforeach
-							</ul>
-						</div>
+					   @if($webPlan->usages())
+						   <div class="mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+							   <h3 class="text-xl text-white font-semibold mb-2">Usos recomendados:</h3>
+							   <ul class="list-disc list-inside text-gray-200">
+								   @foreach($webPlan->usages as $usage)
+									   <li data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ 900 + ($loop->index * 100) }}">{{ $usage->usage }}</li>
+								   @endforeach
+							   </ul>
+						   </div>
 					@endif
 
-					@if($webPlan->demo_url)
-						<a href="{{ $webPlan->demo_url }}" target="_blank" rel="noopener" class="inline-block mb-4 text-red-400 hover:text-red-600 underline font-semibold">Ver demo en vivo</a>
+					   @if($webPlan->demo_url)
+						   <a href="{{ $webPlan->demo_url }}" target="_blank" rel="noopener" class="inline-block mb-4 text-red-400 hover:text-red-600 underline font-semibold" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1000">Ver demo en vivo</a>
 					@endif
 
-                    <a href="{{ route('web_plans.interest_form', ['slug' => $webPlan->slug]) }}" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition text-center ">Me Interesa <i class="fas fa-arrow-right ml-2"></i></a>
+					<a href="{{ route('web_plans.interest_form', ['slug' => $webPlan->slug]) }}" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition text-center " data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="1200">Me Interesa <i class="fas fa-arrow-right ml-2"></i></a>
 
 				</div>
 			</div>
@@ -82,8 +82,10 @@
 @endsection
 
 @push('scripts')
+
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
+			AOS.init();
 			const mainImg = document.querySelector('img[alt^="Mockup del plan"]');
 			const thumbs = document.querySelectorAll('img[alt^="Imagen del plan"]');
 			thumbs.forEach(thumb => {
