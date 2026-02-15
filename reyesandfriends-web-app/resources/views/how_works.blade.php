@@ -15,7 +15,7 @@
                 <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Ofrecemos dos opciones: contratar uno de nuestros <a href="{{ route('web_plans') }}"><strong class="text-red-700 hover:underline">Planes Web Personalizados</strong></a> o solicitar una cotización a medida. Nuestro equipo entiende sus necesidades y crea soluciones digitales que impulsan su negocio.</p>
             </div>
             <div class="w-full md:w-1/2 flex justify-center">
-                <img src="{{ asset('img/how_works/how_works.png') }}" alt="Proceso de trabajo" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/how_works/ilustration.png') }}" alt="Proceso de trabajo" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
             </div>
         </div>
     </section>

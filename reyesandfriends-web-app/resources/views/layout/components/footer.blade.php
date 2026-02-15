@@ -20,8 +20,8 @@
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Soporte</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:underline font-medium">Como Funciona</a></li>
-                <li><a href="/" class="hover:underline font-medium">Contacto</a></li>
+                <li><a href="{{ route('how_works') }}" class="hover:underline font-medium">Como Funciona</a></li>
+                <li><a href="{{ route('contact') }}" class="hover:underline font-medium">Contacto</a></li>
                 <li><a href="/" class="hover:underline font-medium">FAQ</a></li>
             </ul>
             </div>

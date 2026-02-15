@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Soporte técnico",
+        "slug": "soporte"
+    },
+    {
+        "name": "Pregunta sobre servicios",
+        "slug": "servicios"
+    },
+    {
+        "name": "Trabajo / Colaboraciones",
+        "slug": "colaboracion"
+    },
+    {
+        "name": "Dudas generales",
+        "slug": "dudas"
+    },
+    {
+        "name": "Saludos / Feedback",
+        "slug": "feedback"
+    },
+    {
+        "name": "Reporte de errores",
+        "slug": "errores"
+    },
+    {
+        "name": "Otro",
+        "slug": "otro"
+    }
+]

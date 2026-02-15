@@ -12,7 +12,7 @@
                 <ul class="flex space-x-6 font-medium">
                     <li><a href="{{ route('web_plans') }}" class="hover:underline">Planes Web</a></li>
                     <li><a href="{{ route('how_works') }}" class="hover:underline">Como Funciona</a></li>
-                    <li><a href="/" class="hover:underline">Contacto</a></li>
+                    <li><a href="{{ route('contact') }}" class="hover:underline">Contacto</a></li>
                 </ul>
             </nav>
             <button id="menu-toggle" class="md:hidden ml-2 text-2xl focus:outline-none" aria-label="Abrir menú">
@@ -23,7 +23,7 @@
         <nav id="mobile-menu" class="md:hidden bg-black text-white shadow-lg py-4 px-6 flex flex-col space-y-4 fixed top-20 left-0 w-full z-40 transition-all duration-300 hidden">
             <a href="{{ route('web_plans') }}" class="hover:underline">Planes Web</a>
             <a href="{{ route('how_works') }}" class="hover:underline">Como Funciona</a>
-            <a href="/" class="hover:underline">Contacto</a>
+            <a href="{{ route('contact') }}" class="hover:underline">Contacto</a>
         </nav>
     </div>
 </header>
