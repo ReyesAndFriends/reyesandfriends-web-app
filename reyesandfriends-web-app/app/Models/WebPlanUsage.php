@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebPlanImage extends Model
+class WebPlanUsage extends Model
 {
     protected $fillable = [
         'web_plan_id',
-        'image_url'
+        'usage'
     ];
 
     public function webPlan()

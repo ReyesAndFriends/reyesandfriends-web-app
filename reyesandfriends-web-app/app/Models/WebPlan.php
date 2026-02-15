@@ -20,4 +20,14 @@ class WebPlan extends Model
     {
         return $this->hasMany(WebPlanImage::class);
     }
+
+    public function features()
+    {
+        return $this->hasMany(WebPlanFeature::class);
+    }
+
+    public function usages()
+    {
+        return $this->hasMany(WebPlanUsage::class);
+    }
 }

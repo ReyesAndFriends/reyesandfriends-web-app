@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\WebPlan;
 use App\Models\WebPlanImage;
+use App\Models\WebPlanFeature;
+use App\Models\WebPlanUsage;
 
 class WebPlanesSeeder extends Seeder
 {
@@ -35,6 +37,28 @@ class WebPlanesSeeder extends Seeder
                         WebPlanImage::create([
                             'web_plan_id' => $webPlan->id,
                             'image_url' => $imageUrl,
+                        ]);
+                    }
+                }
+
+                // Insertar características asociadas
+
+                if (!empty($plan['features'])) {
+                    foreach ($plan['features'] as $feature) {
+                        WebPlanFeature::create([
+                            'web_plan_id' => $webPlan->id,
+                            'feature' => $feature,
+                        ]);
+                    }
+                }
+
+                // Insertar usos asociados
+
+                if (!empty($plan['usages'])) {
+                    foreach ($plan['usages'] as $usage) {
+                        WebPlanUsage::create([
+                            'web_plan_id' => $webPlan->id,
+                            'usage' => $usage,
                         ]);
                     }
                 }
