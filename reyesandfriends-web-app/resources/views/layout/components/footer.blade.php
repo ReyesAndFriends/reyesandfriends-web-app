@@ -12,25 +12,25 @@
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Empresa</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:text-red-700 transition">Sobre Nosotros</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">Portafolio</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">Blog</a></li>
+                <li><a href="/" class="hover:underline font-medium">Sobre Nosotros</a></li>
+                <li><a href="/" class="hover:underline font-medium">Portafolio</a></li>
+                <li><a href="/" class="hover:underline font-medium">Blog</a></li>
             </ul>
             </div>
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Soporte</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:text-red-700 transition">Centro de Ayuda</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">Contacto</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">FAQ</a></li>
+                <li><a href="/" class="hover:underline font-medium">Como Funciona</a></li>
+                <li><a href="/" class="hover:underline font-medium">Contacto</a></li>
+                <li><a href="/" class="hover:underline font-medium">FAQ</a></li>
             </ul>
             </div>
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Legal</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:text-red-700 transition">Privacidad</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">Términos</a></li>
-                <li><a href="/" class="hover:text-red-700 transition">Cookies</a></li>
+                <li><a href="/" class="hover:underline font-medium">Privacidad</a></li>
+                <li><a href="/" class="hover:underline font-medium">Términos</a></li>
+                <li><a href="/" class="hover:underline font-medium">Cookies</a></li>
             </ul>
             </div>
             </div>
