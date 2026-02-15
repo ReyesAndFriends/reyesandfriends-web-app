@@ -14,7 +14,7 @@
                 <p class="text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium">tu solución digital innovadora</p>
                 <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium">Transforma tu negocio con tecnología a tu medida! Desarrollamos sitios web con contenido atractivo y actualizable, plataformas digitales y soluciones personalizadas para que tu empresa crezca y destaque en el mundo digital.</p>
                 <p class="text-xl md:text-3xl text-white drop-shadow font-medium">Planes Web desde <span class="text-2xl md:text-3xl text-red-600">${{ number_format($cheaperWebPlan->price_clp, 0, ',', '.') }}/mes</span></p>
-                <a href="{{ route('web_plans') }}" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition">Cotiza tu Plan Web</a>
+                <a href="{{ route('web_plans') }}" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition">Cotiza tu Plan Web <i class="fas fa-arrow-right ml-2"></i></a>
                 </div>
             <div class="w-full md:w-1/2 flex justify-center">
                 <img src="{{ asset('img/home/desktop.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />

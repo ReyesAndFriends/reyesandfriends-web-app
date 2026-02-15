@@ -50,10 +50,10 @@
                             </p>
                             <a
                                 href="{{ route('web_plans.show', $webPlan->slug) }}"
-                                class="bg-red-700 hover:bg-red-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded transition-all duration-300 inline-flex items-center gap-3 font-semibold hover:scale-105 text-base sm:text-lg w-fit"
+                                class="bg-red-800 hover:bg-red-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded transition-all duration-300 inline-flex items-center gap-3 font-semibold hover:scale-105 text-base sm:text-lg w-fit"
                             >
                                 Ver Detalles
-                                <svg class="h-6 sm:h-7 w-6 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>

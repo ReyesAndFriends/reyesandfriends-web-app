@@ -47,6 +47,7 @@
 
         @include('layout.components.footer')
         
+        @include('layout.components.whatsapp_button')
         @stack('scripts')
     </body>
 </html>
