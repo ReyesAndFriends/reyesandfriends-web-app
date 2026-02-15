@@ -10,7 +10,7 @@
                     </a>
                     <nav>
                         <ul class="flex space-x-6 font-medium">
-                            <li><a href="/" class="hover:underline">Planes Web</a></li>
+                            <li><a href="{{ route('web_plans') }}" class="hover:underline">Planes Web</a></li>
                             <li><a href="/" class="hover:underline">Como Funciona</a></li>
                             <li><a href="/" class="hover:underline">Contacto</a></li>
                         </ul>
