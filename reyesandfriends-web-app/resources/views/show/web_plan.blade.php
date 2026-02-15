@@ -47,6 +47,28 @@
 						{{ $webPlan->description }}
 					</p>
 
+					@if($webPlan->features())
+						<div class="mb-6">
+							<h3 class="text-xl text-white font-semibold mb-2">Características principales:</h3>
+							<ul class="list-disc list-inside text-gray-200">
+								@foreach($webPlan->features as $feature)
+									<li>{{ $feature->feature }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
+
+					@if($webPlan->usages())
+						<div class="mb-6">
+							<h3 class="text-xl text-white font-semibold mb-2">Usos recomendados:</h3>
+							<ul class="list-disc list-inside text-gray-200">
+								@foreach($webPlan->usages as $usage)
+									<li>{{ $usage->usage }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
+
 					@if($webPlan->demo_url)
 						<a href="{{ $webPlan->demo_url }}" target="_blank" rel="noopener" class="inline-block mb-4 text-red-400 hover:text-red-600 underline font-semibold">Ver demo en vivo</a>
 					@endif

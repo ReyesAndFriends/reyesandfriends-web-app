@@ -13,6 +13,6 @@ class WebPlanFeature extends Model
 
     public function plan()
     {
-        return $this->belongsTo(WebPlan::class, 'plan_id');
+        return $this->belongsTo(WebPlan::class);
     }
 }

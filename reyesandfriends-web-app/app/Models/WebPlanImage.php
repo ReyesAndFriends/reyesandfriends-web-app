@@ -13,6 +13,6 @@ class WebPlanImage extends Model
 
     public function webPlan()
     {
-        return $this->belongsTo(WebPlan::class, 'web_plan_id');
+        return $this->belongsTo(WebPlan::class);
     }
 }
