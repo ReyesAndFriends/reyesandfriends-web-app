@@ -14,6 +14,7 @@
 							<h2 class="text-2xl text-white font-semibold mb-6 text-center">Cotizar Plan Web</h2>
 							<p class="text-white mb-6">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
                             <form id="web-plan-interested-form" autocomplete="off" novalidate action="{{ route('web_plans.interest_store', $webPlan->slug) }}" method="POST">
+                                @csrf
                                 <div class="grid lg:grid-cols-2 gap-y-6 gap-x-4">
                                     <div class="col-span-1">
                                         <label for="first_name" class="block text-gray-300 font-bold mb-2">Nombre (requerido)</label>
@@ -64,7 +65,6 @@
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('web-plan-interested-form');
         const submitBtn = document.getElementById('submit-btn');
-        let triedSubmit = false;
         const fields = {
             first_name: {
                 required: true,
@@ -129,51 +129,11 @@
             input.addEventListener('blur', updateButtonState);
         });
 
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            triedSubmit = true;
+        form.addEventListener('submit', function (e) {
             const isValid = updateErrors(true);
             updateButtonState();
-            if (isValid) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Enviando...';
-
-                const formData = new FormData(form);
-                let actionUrl = form.getAttribute('action');
-
-                try {
-                    const response = await fetch(actionUrl, {
-                        method: 'POST',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                            'Accept': 'application/json',
-                        },
-                        body: formData
-                    });
-                    if (response.redirected) {
-                        window.location.href = response.url;
-                        return;
-                    }
-                    const result = await response.json();
-                    if (result.errors) {
-                        Object.keys(result.errors).forEach(field => {
-                            const errorElem = document.getElementById('error_' + field);
-                            if (errorElem) {
-                                errorElem.textContent = result.errors[field][0];
-                            }
-                        });
-                    } else if (result.success) {
-                        form.reset();
-                        updateButtonState();
-                    }
-                } catch (error) {
-
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Enviar Solicitud';
-                }
+            if (!isValid) {
+                e.preventDefault();
             }
         });
 

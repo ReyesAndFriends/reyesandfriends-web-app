@@ -47,10 +47,15 @@ class WebPlansInterestedController extends Controller
             'cellphone.size' => 'El campo celular debe tener exactamente 9 caracteres.',
         ]);
 
+        if (WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->exists()) {
+            $existingInterest = WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->first();
+            return redirect()->route('web_plans')->with('error', 'Ya existe una cotización registrada con este correo electrónico para este plan. Creada el ' . $existingInterest->created_at->format('d/m/Y') . '.');
+        }
+
         WebPlanInterested::create([
             'web_plan_id' => $webPlan->id,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'first_name' => ucwords($request->first_name),
+            'last_name' => ucwords($request->last_name),
             'email' => $request->email,
             'cellphone' => $request->cellphone,
         ]);
