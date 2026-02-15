@@ -85,6 +85,14 @@
 						<p id="error_message" class="min-h-[20px]"></p>
 					</div>
 					<div class="md:col-span-2 col-span-1 mt-4">
+						<div class="mb-4 flex justify-center">
+							<div class="w-full flex flex-col items-center">
+								<div id="turnstile-container" class="flex justify-center"></div>
+								@error('cf-turnstile-response')
+									<span class="text-red-500 text-sm mt-1 min-h-[20px]">{{ $message }}</span>
+								@enderror
+							</div>
+						</div>
 						<button id="submit-btn" type="submit" class="w-full bg-gray-500 text-white font-bold py-3 rounded-sm text-lg transition cursor-not-allowed" disabled>Enviar Mensaje</button>
 					</div>
 				</form>
@@ -94,93 +102,130 @@
 @endsection
 
 @push('scripts')
-	<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		const form = document.getElementById('contact-form');
-		const submitBtn = document.getElementById('submit-btn');
-		   const fields = {
-			   first_name: {
-				   required: true,
-				   validator: value => value.trim().length > 0,
-				   error: 'El nombre es obligatorio.'
-			   },
-			   last_name: {
-				   required: true,
-				   validator: value => value.trim().length > 0,
-				   error: 'El apellido es obligatorio.'
-			   },
-			   email: {
-				   required: true,
-				   validator: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-				   error: 'Correo electrónico inválido.'
-			   },
-			   cellphone: {
-				   required: false,
-				   validator: value => value === '' || (/^\d{9}$/.test(value)),
-				   error: 'El número debe tener 9 dígitos.'
-			   },
-			category_slug: {
-				required: true,
-				validator: value => value !== '',
-				error: 'Selecciona una categoría.'
-			},
-			   message: {
-				   required: true,
-				   validator: value => value.trim().length >= 20 && value.trim().length <= 1000,
-				   error: 'El mensaje debe tener entre 20 y 1000 caracteres.'
-			   }
-		   };
-
-		function validateField(field, value) {
-			if (fields[field].required && !fields[field].validator(value)) {
-				return fields[field].error;
-			}
-			if (!fields[field].required && value && !fields[field].validator(value)) {
-				return fields[field].error;
-			}
-			return '';
-		}
-
-		   function updateErrors() {
-			   let valid = true;
-			   Object.keys(fields).forEach(field => {
-				   const input = document.getElementById(field);
-				   const errorMsg = validateField(field, input.value);
-				   if (errorMsg) valid = false;
-			   });
-			   return valid;
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+   <script>
+   document.addEventListener('DOMContentLoaded', function () {
+	   const form = document.getElementById('contact-form');
+	   const submitBtn = document.getElementById('submit-btn');
+	   const fields = {
+		   first_name: {
+			   required: true,
+			   validator: value => value.trim().length > 0,
+			   error: 'El nombre es obligatorio.'
+		   },
+		   last_name: {
+			   required: true,
+			   validator: value => value.trim().length > 0,
+			   error: 'El apellido es obligatorio.'
+		   },
+		   email: {
+			   required: true,
+			   validator: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+			   error: 'Correo electrónico inválido.'
+		   },
+		   cellphone: {
+			   required: false,
+			   validator: value => value === '' || (/^\d{9}$/.test(value)),
+			   error: 'El número debe tener 9 dígitos.'
+		   },
+		   category_slug: {
+			   required: true,
+			   validator: value => value !== '',
+			   error: 'Selecciona una categoría.'
+		   },
+		   message: {
+			   required: true,
+			   validator: value => value.trim().length >= 20 && value.trim().length <= 1000,
+			   error: 'El mensaje debe tener entre 20 y 1000 caracteres.'
+		   },
+		   'cf-turnstile-response': {
+			   required: true,
+			   validator: value => value && value.length > 0,
+			   error: 'Por favor verifica que no eres un robot.'
 		   }
+	   };
 
-		   function updateButtonState() {
-			   const isValid = updateErrors();
-			   if (isValid) {
-				   submitBtn.disabled = false;
-				   submitBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
-				   submitBtn.classList.add('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
-			   } else {
-				   submitBtn.disabled = true;
-				   submitBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
-				   submitBtn.classList.remove('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
-			   }
+	   function validateField(field, value) {
+		   if (fields[field].required && !fields[field].validator(value)) {
+			   return fields[field].error;
 		   }
+		   if (!fields[field].required && value && !fields[field].validator(value)) {
+			   return fields[field].error;
+		   }
+		   return '';
+	   }
 
+	   function updateErrors() {
+		   let valid = true;
 		   Object.keys(fields).forEach(field => {
 			   const input = document.getElementById(field);
-			   if (input) {
-				   input.addEventListener('input', updateButtonState);
-				   input.addEventListener('blur', updateButtonState);
+			   let value = input ? input.value : '';
+			   if (field === 'cf-turnstile-response') {
+				   value = document.querySelector('input[name="cf-turnstile-response"]').value;
 			   }
+			   const errorMsg = validateField(field, value);
+			   if (errorMsg) valid = false;
 		   });
+		   return valid;
+	   }
 
-		   form.addEventListener('submit', function (e) {
-			   const isValid = updateErrors();
+	   function updateButtonState() {
+		   const isValid = updateErrors();
+		   if (isValid) {
+			   submitBtn.disabled = false;
+			   submitBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
+			   submitBtn.classList.add('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
+		   } else {
+			   submitBtn.disabled = true;
+			   submitBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
+			   submitBtn.classList.remove('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
+		   }
+	   }
+
+	   Object.keys(fields).forEach(field => {
+		   const input = document.getElementById(field);
+		   if (input) {
+			   input.addEventListener('input', updateButtonState);
+			   input.addEventListener('blur', updateButtonState);
+		   }
+	   });
+
+	   form.addEventListener('submit', function (e) {
+		   const isValid = updateErrors();
+		   updateButtonState();
+		   if (!isValid) {
+			   e.preventDefault();
+		   }
+	   });
+
+	   // Render Turnstile widget
+	   const turnstileContainer = document.getElementById('turnstile-container');
+	   if (turnstileContainer) {
+		   window.turnstileCallback = function(token) {
+			   let input = document.querySelector('input[name="cf-turnstile-response"]');
+			   if (!input) {
+				   input = document.createElement('input');
+				   input.type = 'hidden';
+				   input.name = 'cf-turnstile-response';
+				   form.appendChild(input);
+			   }
+			   input.value = token;
 			   updateButtonState();
-			   if (!isValid) {
-				   e.preventDefault();
-			   }
+		   };
+		   window.turnstileExpiredCallback = function() {
+			   let input = document.querySelector('input[name="cf-turnstile-response"]');
+			   if (input) input.value = '';
+			   updateButtonState();
+		   };
+		   turnstile.render(turnstileContainer, {
+			   sitekey: '{{ config('turnstile.site_key', config('app.turnstile.site_key')) }}',
+			   callback: window.turnstileCallback,
+			   'expired-callback': window.turnstileExpiredCallback,
+			   theme: 'light',
 		   });
+	   }
 
-		updateButtonState();
-	});
-	</script>
+	   updateButtonState();
+   });
+   </script>
 @endpush
