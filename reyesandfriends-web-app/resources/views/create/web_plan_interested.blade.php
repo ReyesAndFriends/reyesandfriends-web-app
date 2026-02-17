@@ -12,9 +12,7 @@
                     <div class="lg:col-span-2">
                         <div>
                             <h2 class="text-2xl text-white font-semibold mb-6 text-center" data-aos="fade-down" data-aos-delay="200">Cotizar Plan Web</h2>
-                            <p class="text-white mb-6" data-aos="fade-up" data-aos-delay="400">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
-                                <h2 class="text-2xl text-white font-semibold mb-6 text-center" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">Cotizar Plan Web</h2>
-                                <p class="text-white mb-6" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">Con esta información podremos contactarte y procesar tu solicitud de manera eficiente.</p>
+                            <p class="text-white mb-6" data-aos="fade-up" data-aos-delay="400">Completa este formulario para que podamos contactarte y brindarte más información sobre el plan web que te interesa. Nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte.</p>
                             <form id="web-plan-interested-form" autocomplete="off" novalidate action="{{ route('web_plans.interest_store', $webPlan->slug) }}" method="POST" data-aos="zoom-in" data-aos-delay="600">
                                 @csrf
                                 <div class="grid lg:grid-cols-2 gap-y-6 gap-x-4">

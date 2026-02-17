@@ -49,7 +49,7 @@ class WebPlansInterestedController extends Controller
 
         if (WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->exists()) {
             $existingInterest = WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->first();
-            return redirect()->route('web_plans')->with('error', 'Ya existe una cotización registrada con este correo electrónico para este plan. Creada el ' . $existingInterest->created_at->format('d/m/Y') . '.');
+            return redirect()->route('web_plans.interest_form', ['slug' => $slug])->with('error', 'Ya existe una cotización registrada con este correo electrónico para este plan. Creada el ' . $existingInterest->created_at->format('d/m/Y') . '.');
         }
 
         WebPlanInterested::create([
@@ -60,6 +60,6 @@ class WebPlansInterestedController extends Controller
             'cellphone' => $request->cellphone,
         ]);
 
-        return redirect()->route('web_plans')->with('success', '¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
+        return redirect()->route('web_plans.interest_form', ['slug' => $slug])->with('success', '¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
     }
 }
