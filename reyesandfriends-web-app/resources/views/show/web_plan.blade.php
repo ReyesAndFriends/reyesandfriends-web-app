@@ -9,29 +9,36 @@
 		<div class="container mx-auto px-6">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 p-12 items-start bg-zinc-900 rounded-xl">
                 <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-duration="1000">
-					@if($webPlan->images && count($webPlan->images) > 0)
-						<div class="flex flex-col gap-4">
-							<div class="w-full aspect-[16/9] mb-2">
-								<img
-									src="{{ $webPlan->images[0]->image_url }}"
-									alt="Mockup del plan {{ $webPlan->name }}"
-									class="rounded shadow-xl w-full h-full object-cover pointer-events-none"
-								/>
-							</div>
-							@if(count($webPlan->images) > 1)
-								<div class="flex gap-3 overflow-x-auto pb-2">
-									@foreach($webPlan->images as $image)
-										<img
-											src="{{ $image->image_url }}"
-											alt="Imagen del plan {{ $webPlan->name }}"
-											class="rounded shadow w-32 h-20 object-cover border-2 border-zinc-800 hover:border-red-600 transition-all duration-200 cursor-pointer"
-											onclick="document.getElementById('mainImage').src='{{ $image->image_url }}'"
-										/>
-									@endforeach
-								</div>
-							@endif
-						</div>
-					@endif
+					   @if($webPlan->images && count($webPlan->images) > 0)
+						   <div class="flex flex-col gap-4">
+							   <div class="w-full aspect-[16/9] mb-2 relative">
+								   <img
+									   id="mainImage"
+									   src="{{ $webPlan->images[0]->image_url }}"
+									   alt="Mockup del plan {{ $webPlan->name }}"
+									   class="rounded shadow-xl w-full h-full object-cover cursor-pointer transition-all duration-300"
+									   data-aos="fade-in"
+									   data-aos-duration="600"
+								   />
+								   <button id="zoomBtn" class="absolute bottom-3 right-3 bg-black/60 text-white rounded-full p-2 text-xl hover:bg-black/80 transition-all duration-200" style="z-index:2" title="Ver en detalle">
+									   <i class="fas fa-search-plus cursor-pointer"></i>
+								   </button>
+							   </div>
+							   @if(count($webPlan->images) > 1)
+								   <div class="flex gap-3 overflow-x-auto pb-2">
+									   @foreach($webPlan->images as $image)
+										   <img
+											   src="{{ $image->image_url }}"
+											   alt="Imagen del plan {{ $webPlan->name }}"
+											   class="rounded shadow w-32 h-20 object-cover border-2 border-zinc-800 hover:border-red-600 transition-all duration-200 cursor-pointer"
+											   data-aos="fade-in"
+											   data-aos-duration="400"
+										   />
+									   @endforeach
+								   </div>
+							   @endif
+						   </div>
+					   @endif
 				</div>
 				<div class="flex flex-col justify-center" data-aos="fade-left" data-aos-duration="1000">
 					   <h1 class="text-4xl md:text-5xl text-white mb-4 font-bold" data-aos="zoom-in" data-aos-duration="800">
@@ -82,17 +89,74 @@
 @endsection
 
 @push('scripts')
+   <script>
+	   document.addEventListener('DOMContentLoaded', function() {
+		   const mainImg = document.getElementById('mainImage');
+		   const thumbs = document.querySelectorAll('img[alt^="Imagen del plan"]');
+		   thumbs.forEach(thumb => {
+			   thumb.addEventListener('click', function() {
+				   if(mainImg) {
+					   mainImg.src = this.src;
+					   mainImg.setAttribute('data-aos', 'fade-in');
+					   mainImg.setAttribute('data-aos-duration', '600');
+					   AOS.refresh();
+				   }
+			   });
+		   });
 
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			AOS.init();
-			const mainImg = document.querySelector('img[alt^="Mockup del plan"]');
-			const thumbs = document.querySelectorAll('img[alt^="Imagen del plan"]');
-			thumbs.forEach(thumb => {
-				thumb.addEventListener('click', function() {
-					if(mainImg) mainImg.src = this.src;
-				});
-			});
-		});
-	</script>
+		   // Modal
+		   const zoomBtn = document.getElementById('zoomBtn');
+		   let modal = null;
+		   function openModal(imgSrc) {
+			   if(modal) return;
+			   modal = document.createElement('div');
+			   modal.id = 'imgModal';
+			   modal.className = 'fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-opacity duration-300 opacity-100';
+			   modal.innerHTML = `
+				   <button class="absolute top-4 right-6 bg-black/70 text-white rounded-full p-2 text-2xl hover:bg-black/90 transition-all duration-200" id="closeModalBtn" title="Cerrar" style="z-index:100;">
+					   <i class="fas fa-times cursor-pointer"></i>
+				   </button>
+				   <div class="relative" data-aos="fade-in" data-aos-duration="400">
+					   <img src="${imgSrc}" alt="Imagen detalle" class="max-w-screen-lg max-h-screen rounded shadow-xl" style="box-shadow:0 0 40px #000;" />
+				   </div>
+			   `;
+			   document.body.appendChild(modal);
+			   AOS.refresh();
+
+			   modal.querySelector('#closeModalBtn').addEventListener('click', function(e) {
+				   e.preventDefault();
+				   e.stopPropagation();
+				   closeModal();
+			   });
+			   modal.addEventListener('click', function(e) {
+				   const img = modal.querySelector('img');
+				   const btn = modal.querySelector('#closeModalBtn');
+
+				   if(e.target === modal || (img && !img.contains(e.target) && (!btn || !btn.contains(e.target)))) {
+					   closeModal();
+				   }
+			   });
+		   }
+		   function closeModal() {
+			   if(modal) {
+				   modal.style.opacity = '0';
+				   setTimeout(() => {
+					   modal.remove();
+					   modal = null;
+				   }, 300);
+			   }
+		   }
+		   if(mainImg) {
+			   mainImg.addEventListener('click', function() {
+				   openModal(mainImg.src);
+			   });
+		   }
+		   if(zoomBtn && mainImg) {
+			   zoomBtn.addEventListener('click', function(e) {
+				   e.stopPropagation();
+				   openModal(mainImg.src);
+			   });
+		   }
+	   });
+   </script>
 @endpush
