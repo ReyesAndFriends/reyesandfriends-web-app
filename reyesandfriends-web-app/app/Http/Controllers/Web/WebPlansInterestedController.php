@@ -33,6 +33,7 @@ class WebPlansInterestedController extends Controller
             'last_name' => 'required|string|max:50',
             'email' => 'required|email|max:100',
             'cellphone' => 'nullable|string|size:9',
+            'cf-turnstile-response' => 'required',
         ],[
             'first_name.required' => 'El campo nombre es obligatorio.',
             'first_name.string' => 'El campo nombre debe ser una cadena de texto.',
@@ -45,7 +46,24 @@ class WebPlansInterestedController extends Controller
             'email.max' => 'El campo correo electrónico no puede tener más de 100 caracteres.',
             'cellphone.string' => 'El campo celular debe ser una cadena de texto.',
             'cellphone.size' => 'El campo celular debe tener exactamente 9 caracteres.',
+            'cf-turnstile-response.required' => 'Por favor verifica que no eres un robot.',
         ]);
+
+        // Validar Turnstile
+        $turnstileResponse = $request->input('cf-turnstile-response');
+        $turnstileSecret = config('turnstile.secret_key', config('app.turnstile.secret_key'));
+        $remoteIp = $request->ip();
+        $verifyResponse = null;
+        if ($turnstileResponse && $turnstileSecret) {
+            $verifyResponse = \Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                'secret' => $turnstileSecret,
+                'response' => $turnstileResponse,
+                'remoteip' => $remoteIp,
+            ]);
+        }
+        if (!$verifyResponse || !$verifyResponse->json('success')) {
+            return redirect()->route('web_plans.interest_form', ['slug' => $slug])->withErrors(['cf-turnstile-response' => 'No se pudo verificar el captcha. Intenta nuevamente.'])->withInput();
+        }
 
         if (WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->exists()) {
             $existingInterest = WebPlanInterested::where('web_plan_id', $webPlan->id)->where('email', $request->email)->first();

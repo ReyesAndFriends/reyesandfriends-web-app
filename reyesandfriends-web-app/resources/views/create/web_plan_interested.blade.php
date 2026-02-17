@@ -40,6 +40,12 @@
                                         <p id="error_cellphone" class="text-red-500 text-sm mt-1 min-h-[20px]"></p>
                                     </div>
                                     <div class="lg:col-span-2 mt-6">
+                                        <div class="mb-4 flex justify-center">
+                                            <div class="w-full flex flex-col items-center">
+                                                <div id="turnstile-container" class="flex justify-center"></div>
+                                                <p id="error_cf-turnstile-response" class="text-red-500 text-sm mt-1 min-h-[20px]"></p>
+                                            </div>
+                                        </div>
                                         <button id="submit-btn" type="submit" class="w-full bg-gray-500 text-white font-bold py-3 px-8 rounded text-lg transition cursor-not-allowed" disabled>Enviar Solicitud</button>
                                     </div>
                                 </div>
@@ -61,83 +67,121 @@
 @endsection
 
 @push('scripts')
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('web-plan-interested-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const fields = {
-            first_name: {
-                required: true,
-                validator: value => value.trim().length > 0,
-                error: 'El nombre es obligatorio.'
-            },
-            last_name: {
-                required: true,
-                validator: value => value.trim().length > 0,
-                error: 'El apellido es obligatorio.'
-            },
-            email: {
-                required: true,
-                validator: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-                error: 'Correo electrónico inválido.'
-            },
-            cellphone: {
-                required: false,
-                validator: value => value === '' || (/^\d{9}$/.test(value)),
-                error: 'El número debe tener 9 dígitos.'
-            }
-        };
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+   <script>
+   document.addEventListener('DOMContentLoaded', function () {
+       const form = document.getElementById('web-plan-interested-form');
+       const submitBtn = document.getElementById('submit-btn');
+       const fields = {
+           first_name: {
+               required: true,
+               validator: value => value.trim().length > 0,
+               error: 'El nombre es obligatorio.'
+           },
+           last_name: {
+               required: true,
+               validator: value => value.trim().length > 0,
+               error: 'El apellido es obligatorio.'
+           },
+           email: {
+               required: true,
+               validator: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+               error: 'Correo electrónico inválido.'
+           },
+           cellphone: {
+               required: false,
+               validator: value => value === '' || (/^\d{9}$/.test(value)),
+               error: 'El número debe tener 9 dígitos.'
+           },
+           'cf-turnstile-response': {
+               required: true,
+               validator: value => value && value.length > 0,
+               error: 'Por favor verifica que no eres un robot.'
+           }
+       };
 
-        function validateField(field, value) {
-            if (fields[field].required && !fields[field].validator(value)) {
-                return fields[field].error;
-            }
-            if (!fields[field].required && value && !fields[field].validator(value)) {
-                return fields[field].error;
-            }
-            return '';
-        }
+       function validateField(field, value) {
+           if (fields[field].required && !fields[field].validator(value)) {
+               return fields[field].error;
+           }
+           if (!fields[field].required && value && !fields[field].validator(value)) {
+               return fields[field].error;
+           }
+           return '';
+       }
 
-        function updateErrors(showErrors) {
-            let valid = true;
-            Object.keys(fields).forEach(field => {
-                const input = document.getElementById(field);
-                const errorElem = document.getElementById('error_' + field);
-                const errorMsg = validateField(field, input.value);
-                errorElem.textContent = (showErrors && errorMsg) ? errorMsg : '';
-                if (errorMsg) valid = false;
-            });
-            return valid;
-        }
+       function updateErrors(showErrors) {
+           let valid = true;
+           Object.keys(fields).forEach(field => {
+               const input = document.getElementById(field);
+               let value = input ? input.value : '';
+               if (field === 'cf-turnstile-response') {
+                   value = document.querySelector('input[name="cf-turnstile-response"]')?.value || '';
+               }
+               const errorElem = document.getElementById('error_' + field.replace(/\./g, '-'));
+               const errorMsg = validateField(field, value);
+               if (errorElem) errorElem.textContent = (showErrors && errorMsg) ? errorMsg : '';
+               if (errorMsg) valid = false;
+           });
+           return valid;
+       }
 
-        function updateButtonState() {
-            const isValid = updateErrors(false);
-            if (isValid) {
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
-                submitBtn.classList.add('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
-                submitBtn.classList.remove('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
-            }
-        }
+       function updateButtonState() {
+           const isValid = updateErrors(false);
+           if (isValid) {
+               submitBtn.disabled = false;
+               submitBtn.classList.remove('bg-gray-500', 'cursor-not-allowed');
+               submitBtn.classList.add('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
+           } else {
+               submitBtn.disabled = true;
+               submitBtn.classList.add('bg-gray-500', 'cursor-not-allowed');
+               submitBtn.classList.remove('bg-red-800', 'hover:bg-red-900', 'cursor-pointer');
+           }
+       }
 
-        Object.keys(fields).forEach(field => {
-            const input = document.getElementById(field);
-            input.addEventListener('input', updateButtonState);
-            input.addEventListener('blur', updateButtonState);
-        });
+       Object.keys(fields).forEach(field => {
+           const input = document.getElementById(field);
+           if (input) {
+               input.addEventListener('input', updateButtonState);
+               input.addEventListener('blur', updateButtonState);
+           }
+       });
 
-        form.addEventListener('submit', function (e) {
-            const isValid = updateErrors(true);
-            updateButtonState();
-            if (!isValid) {
-                e.preventDefault();
-            }
-        });
+       form.addEventListener('submit', function (e) {
+           const isValid = updateErrors(true);
+           updateButtonState();
+           if (!isValid) {
+               e.preventDefault();
+           }
+       });
 
-        updateButtonState();
-    });
-    </script>
+       const turnstileContainer = document.getElementById('turnstile-container');
+       if (turnstileContainer) {
+           window.turnstileCallback = function(token) {
+               let input = document.querySelector('input[name="cf-turnstile-response"]');
+               if (!input) {
+                   input = document.createElement('input');
+                   input.type = 'hidden';
+                   input.name = 'cf-turnstile-response';
+                   form.appendChild(input);
+               }
+               input.value = token;
+               updateButtonState();
+           };
+           window.turnstileExpiredCallback = function() {
+               let input = document.querySelector('input[name="cf-turnstile-response"]');
+               if (input) input.value = '';
+               updateButtonState();
+           };
+           turnstile.render(turnstileContainer, {
+               sitekey: '{{ config('turnstile.site_key', config('app.turnstile.site_key')) }}',
+               callback: window.turnstileCallback,
+               'expired-callback': window.turnstileExpiredCallback,
+               theme: 'light',
+           });
+       }
+
+       updateButtonState();
+   });
+   </script>
 @endpush
