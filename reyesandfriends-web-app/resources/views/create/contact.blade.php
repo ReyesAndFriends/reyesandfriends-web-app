@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-red-950/90"></div>
 			<div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8">
 				<div class="w-full md:w-1/2 flex justify-center" data-aos="fade-right" data-aos-duration="1200">
-					<img src="{{ asset('img/contact/ilustration.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none" />
+					<img src="{{ asset('img/contact/ilustration.png') }}" alt="Solución digital" class="w-3/4 h-auto drop-shadow-xl pointer-events-none robot-fade-mask" />
 				</div>
 				<div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-left" data-aos-duration="1200">
 					<h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">Contacto</h1>

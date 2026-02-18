@@ -40,7 +40,58 @@
                     </div>
                 @endforeach
             </div>
+            <h2 class="text-3xl mb-12 text-center relative mt-16">
+                <span class="bg-zinc-900 px-4 relative z-10 text-white">Sitios Web que Impulsan tu Negocio</span>
+                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-red-700 -z-0"></div>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+                    <p class="text-lg text-gray-300 leading-relaxed max-w-3xl" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        Ofrecemos soluciones de desarrollo Full Stack, abarcando tanto el frontend como el backend. Nuestro equipo de expertos utiliza tecnologías modernas para crear aplicaciones web y móviles que son rápidas, seguras y escalables. Desde la concepción hasta la implementación, nos aseguramos de que cada proyecto cumpla con los más altos estándares de calidad y rendimiento, brindando a nuestros clientes una experiencia digital excepcional.
+                    </p>
+                </div>
+                <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200" data-aos-once="true">
+                    <img src="{{ asset('img/home/computadoras.jpg') }}" alt="Ilustración de desarrollo Full Stack" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <section class="relative w-full h-[50vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
+        <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
+        <div class="absolute inset-0 bg-red-950/90"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center w-full px-6 gap-6">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg flex items-center gap-4">WHATSAPP <span class="text-red-600">+56 9 8203 4567</span></h1>
+            <a href="https://wa.me/56982034567" target="_blank" class="inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded text-lg transition">Contactar <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+
+            <h2 class="text-3xl mb-12 text-center relative mt-16">
+                <span class="bg-zinc-900 px-4 relative z-10 text-white">¿Listo para transformar tu negocio?</span>
+                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-red-700 -z-0"></div>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+                    <p class="text-lg text-gray-300 leading-relaxed max-w-3xl" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                       Visita nuestros <a href="{{ route('web_plans') }}" class="text-red-600 hover:underline font-semibold">Planes Web</a> o contáctanos a través de nuestro <a href="{{ route('contact') }}" class="text-red-600 hover:underline font-semibold">Formulario de Contacto</a> para obtener una cotización personalizada. Nos pondremos en contacto a la brevedad!
+                    </p>
+                </div>
+                <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200" data-aos-once="true">
+                    <img src="{{ asset('img/home/equipo-robot.png') }}" alt="Ilustración de equipo de trabajo" class="w-2/3 h-auto pointer-events-none robot-fade-mask" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     
 @endsection
