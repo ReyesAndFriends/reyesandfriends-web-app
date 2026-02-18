@@ -130,4 +130,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'production' => [
+        'clients_portal' => env('PRODUCTION_CLIENTS_PORTAL', false),
+        'clients_portal_url' => env('PRODUCTION_CLIENTS_PORTAL_URL'),
+    ]
+
 ];

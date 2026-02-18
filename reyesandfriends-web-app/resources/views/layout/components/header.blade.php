@@ -13,6 +13,11 @@
                     <li><a href="{{ route('web_plans') }}" class="hover:underline">Planes Web</a></li>
                     <li><a href="{{ route('how_works') }}" class="hover:underline">Como Funciona</a></li>
                     <li><a href="{{ route('contact') }}" class="hover:underline">Contacto</a></li>
+
+                    @if(config('app.production.clients_portal') && config('app.production.clients_portal_url'))
+                        <li><a href="{{ config('app.production.clients_portal_url') }}" class="px-4 py-2 bg-red-800 hover:bg-red-900 rounded transition" target="_blank">Portal Clientes</a></li>
+                    @endif
+
                 </ul>
             </nav>
             <button id="menu-toggle" class="md:hidden ml-2 text-2xl focus:outline-none" aria-label="Abrir menú">
@@ -24,6 +29,11 @@
             <a href="{{ route('web_plans') }}" class="hover:underline">Planes Web</a>
             <a href="{{ route('how_works') }}" class="hover:underline">Como Funciona</a>
             <a href="{{ route('contact') }}" class="hover:underline">Contacto</a>
+
+            @if(config('app.production.clients_portal') && config('app.production.clients_portal_url'))
+                <a href="{{ config('app.production.clients_portal_url') }}" class="hover:underline text-red-700 font-semibold" target="_blank">Portal Clientes</a>
+            @endif
+
         </nav>
     </div>
 </header>
