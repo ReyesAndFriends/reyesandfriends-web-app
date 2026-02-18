@@ -12,9 +12,9 @@
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Empresa</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:underline font-medium">Sobre Nosotros</a></li>
-                <li><a href="/" class="hover:underline font-medium">Portafolio</a></li>
-                <li><a href="/" class="hover:underline font-medium">Blog</a></li>
+                <li><a href="{{ route('about_us') }}" class="hover:underline font-medium">Sobre Nosotros</a></li>
+                <li><a href="{{ route('portfolio') }}" class="hover:underline font-medium">Portafolio</a></li>
+                <li><a href="{{ route('blog') }}" class="hover:underline font-medium">Blog</a></li>
             </ul>
             </div>
             <div>
