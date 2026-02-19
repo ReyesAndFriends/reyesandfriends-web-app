@@ -28,8 +28,8 @@
             <div>
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-red-700">Legal</h3>
             <ul class="space-y-2">
-                <li><a href="/" class="hover:underline font-medium">Privacidad</a></li>
-                <li><a href="/" class="hover:underline font-medium">Términos</a></li>
+                <li><a href="{{ route('privacy') }}" class="hover:underline font-medium">Privacidad</a></li>
+                <li><a href="{{ route('terms') }}" class="hover:underline font-medium">Términos</a></li>
                 <li><a href="{{ route('cookies') }}" class="hover:underline font-medium">Cookies</a></li>
             </ul>
             </div>
