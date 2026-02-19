@@ -40,6 +40,7 @@
         <main class="flex-1">
             <div class="w-full flex justify-center">
                 <div class="w-full">
+                    
                     @include('layout.components.app_alerts')
                     @yield('content')
                 </div>
@@ -50,5 +51,6 @@
         
         @include('layout.components.whatsapp_button')
         @stack('scripts')
+        @include('components.cookies_modal')
     </body>
 </html>
