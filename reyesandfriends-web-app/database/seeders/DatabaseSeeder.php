@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             WebPlansSeeder::class,
             ContactFormCategorySeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

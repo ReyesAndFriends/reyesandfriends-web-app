@@ -10,6 +10,7 @@ use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\AboutUsController;
 use App\Http\Controllers\Web\PortfolioController;
 use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\Web\FaqController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/planes-web', [WebPlansController::class, 'index'])->name('web_plans');
@@ -22,3 +23,4 @@ Route::post('/contacto', [ContactController::class, 'store'])->name('contact.sto
 Route::get('/nosotros', [AboutUsController::class, 'index'])->name('about_us');
 Route::get('/portafolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/preguntas-frecuentes', [FaqController::class, 'index'])->name('faq');

@@ -1,0 +1,38 @@
+[
+    {
+        "question": "¿Qué es Reyes&Friends?",
+        "answer": "Reyes & Friends es un emprendimiento creado por Marcos Reyes y compañía, con el objetivo de brindar servicios de desarrollo web, software empresarial, sistemas de gestión, aplicaciones móviles, entre otras soluciones. Nuestro enfoque se centra en ofrecer servicios de alta calidad, adaptados a las necesidades específicas de cada cliente, con un compromiso firme hacia la excelencia y la satisfacción del cliente."
+    },
+    {
+        "question": "¿Qué servicios ofrece Reyes&Friends?",
+        "answer": "Reyes & Friends ofrece una amplia gama de servicios, incluyendo desarrollo web, software empresarial, sistemas de gestión, aplicaciones móviles, entre otros. Puedes revisar nuestra sección de servicios para obtener más detalles sobre cada uno de ellos."
+    },
+    {
+        "question": "¿Cómo puedo contactar a Reyes&Friends?",
+        "answer": "Puedes contactarnos a través de nuestro formulario de contacto en el sitio web, enviándonos un correo electrónico a contacto@reyesandfriends.cl, o por Whatsapp al +56 9 8203 4567. Estamos disponibles para responder tus consultas y ayudarte con tus proyectos."
+    },
+    {
+        "question": "¿Cuáles son los planes de precios de Reyes&Friends?",
+        "answer": "Nuestros planes parten desde $19.990 mensuales, con opciones personalizadas según las necesidades de cada cliente. Puedes revisar nuestra sección de planes para obtener más detalles sobre cada uno de ellos."
+    },
+    {
+        "question": "¿Reyes&Friends ofrece soporte técnico?",
+        "answer": "Sí, Por supuesto. Ofrecemos soporte técnico a nuestros clientes para garantizar que sus proyectos funcionen sin problemas. Nuestro equipo de soporte informático está disponible para resolver cualquier problema o consulta que puedas tener."
+    },
+    {
+        "question": "¿Puedo modificar mi proyecto después de su entrega?",
+        "answer": "Si. Puedes modificar tu proyecto después de su entrega. Esto debe ser evaluado caso por caso, dependiendo de la naturaleza de las modificaciones y el alcance del proyecto. Por una cantidad adicional justa y razonable, podemos realizar las modificaciones necesarias para adaptarnos a tus necesidades cambiantes."
+    },
+    {
+        "question": "¿Si cancelo, me dan el código fuente de mi proyecto?",
+        "answer": "Si, dependiendo de la cantidad de meses que hayas pagado, te entregaremos el código fuente de tu proyecto. Consideramos que el código fuente se paga mensualmente a través de nuestros planes, por lo que si has pagado por 4 meses o más, te entregaremos el código fuente de tu proyecto. Si has pagado por menos de 4 meses, podemos entregarte el código fuente, pero se aplicará un cargo adicional para cubrir los costos de desarrollo y entrega del código fuente."
+    },
+    {
+        "question":"¿Puedo volver a contratar los servicios de Reyes&Friends después de haber cancelado?",
+        "answer":"Sí, puedes volver a contratar nuestros servicios después de haber cancelado. Estamos siempre dispuestos a trabajar contigo nuevamente y ayudarte con tus proyectos. Si decides volver a contratar nuestros servicios podemos recuperar tu proyecto anterior, para continuar donde lo dejamos, o podemos iniciar un nuevo proyecto desde cero, dependiendo de tus necesidades y preferencias."
+    },
+    {
+        "question":"¿Reyes&Friends ofrece servicios de mantenimiento para proyectos existentes?",
+        "answer":"Depende. Ofrecemos mantenimiento para proyectos realizados por nosotros, para proyectos de terceros debemos realizar un estudio previo para evaluar la viabilidad del mantenimiento, dependiendo de la complejidad del proyecto y el estado actual del mismo. Si el proyecto es viable para mantenimiento, podemos ofrecerte un plan de mantenimiento personalizado para garantizar que tu proyecto funcione sin problemas a lo largo del tiempo. No garantizamos el mantenimiento de proyectos de terceros, ya que no tenemos control sobre la calidad del código o la arquitectura del proyecto, lo que puede afectar nuestra capacidad para brindar un mantenimiento efectivo."
+    }
+]

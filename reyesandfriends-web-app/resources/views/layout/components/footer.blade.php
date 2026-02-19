@@ -22,7 +22,7 @@
             <ul class="space-y-2">
                 <li><a href="{{ route('how_works') }}" class="hover:underline font-medium">Como Funciona</a></li>
                 <li><a href="{{ route('contact') }}" class="hover:underline font-medium">Contacto</a></li>
-                <li><a href="/" class="hover:underline font-medium">FAQ</a></li>
+                <li><a href="{{ route('faq') }}" class="hover:underline font-medium">FAQ</a></li>
             </ul>
             </div>
             <div>
