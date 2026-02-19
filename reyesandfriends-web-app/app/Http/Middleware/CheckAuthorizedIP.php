@@ -33,7 +33,6 @@ class CheckAuthorizedIP
         return response()->json([
             'error' => 'Dirección IP no autorizada. No puedes acceder a este recurso.',
             'ip' => $clientIp,
-            'authorized_ips' => $authorizedIps,
         ], 403);
     }
 
