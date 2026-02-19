@@ -30,7 +30,7 @@
             <ul class="space-y-2">
                 <li><a href="/" class="hover:underline font-medium">Privacidad</a></li>
                 <li><a href="/" class="hover:underline font-medium">Términos</a></li>
-                <li><a href="/" class="hover:underline font-medium">Cookies</a></li>
+                <li><a href="{{ route('cookies') }}" class="hover:underline font-medium">Cookies</a></li>
             </ul>
             </div>
             </div>

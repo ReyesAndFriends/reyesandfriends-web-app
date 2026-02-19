@@ -26,4 +26,5 @@ Route::get('/portafolio', [PortfolioController::class, 'index'])->name('portfoli
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/preguntas-frecuentes', [FaqController::class, 'index'])->name('faq');
 
+Route::get('/cookies', [CookiesController::class, 'index'])->name('cookies');
 Route::post('/cookies/accept', [CookiesController::class, 'store'])->name('cookies.accept');

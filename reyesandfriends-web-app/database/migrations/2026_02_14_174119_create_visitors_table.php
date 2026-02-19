@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ip_address', 45)->nullable();
             $table->string('country', 100)->nullable();
             $table->string('user_agent', 512)->nullable();
-            $table->enum('cookie_level', ['required', 'all'])->default('required');
+            $table->enum('cookie_level', ['necessary', 'all'])->default('necessary');
             // Avanzado (nivel all)
             $table->string('referer', 512)->nullable();
             $table->string('utm_source', 100)->nullable();
