@@ -13,10 +13,16 @@ class ContactForm extends Model
         'cellphone',
         'message',
         'category_id',
+        'replied',
     ];
 
     public function category()
     {
         return $this->belongsTo(ContactCategory::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(ContactFormReply::class);
     }
 }
