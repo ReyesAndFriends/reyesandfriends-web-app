@@ -133,6 +133,10 @@ return [
     'production' => [
         'clients_portal' => env('PRODUCTION_CLIENTS_PORTAL', false),
         'clients_portal_url' => env('PRODUCTION_CLIENTS_PORTAL_URL'),
-    ]
+    ],
+
+    'authorized_ip_addresses' => array_filter(
+        array_map('trim', explode(',', env('AUTHORIZED_IP_ADDRESSES', '')))
+    ),
 
 ];
