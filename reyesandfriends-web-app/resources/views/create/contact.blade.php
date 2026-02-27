@@ -102,11 +102,83 @@
 @endsection
 
 @push('scripts')
-   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
    <script>
    document.addEventListener('DOMContentLoaded', function () {
 	   const form = document.getElementById('contact-form');
 	   const submitBtn = document.getElementById('submit-btn');
+	   const turnstileContainer = document.getElementById('turnstile-container');
+	   const turnstileScriptId = 'cloudflare-turnstile-script';
+	   let turnstileRetries = 0;
+	   const maxTurnstileRetries = 10;
+
+	   function getTurnstileToken() {
+		   const tokenInput = document.querySelector('input[name="cf-turnstile-response"]');
+		   return tokenInput ? tokenInput.value : '';
+	   }
+
+	   function setTurnstileToken(token) {
+		   let input = document.querySelector('input[name="cf-turnstile-response"]');
+		   if (!input) {
+			   input = document.createElement('input');
+			   input.type = 'hidden';
+			   input.name = 'cf-turnstile-response';
+			   form.appendChild(input);
+		   }
+		   input.value = token;
+	   }
+
+	   function loadTurnstileScript() {
+		   if (document.getElementById(turnstileScriptId)) {
+			   return;
+		   }
+
+		   const script = document.createElement('script');
+		   script.id = turnstileScriptId;
+		   script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+		   script.async = true;
+		   script.defer = true;
+		   script.onerror = function () {
+			   turnstileRetries += 1;
+			   if (turnstileRetries <= maxTurnstileRetries) {
+				   document.getElementById(turnstileScriptId)?.remove();
+				   setTimeout(loadTurnstileScript, 1000);
+			   }
+		   };
+
+		   document.head.appendChild(script);
+	   }
+
+	   function renderTurnstile() {
+		   if (!turnstileContainer || turnstileContainer.dataset.rendered === '1') {
+			   return;
+		   }
+
+		   if (!window.turnstile || typeof window.turnstile.render !== 'function') {
+			   turnstileRetries += 1;
+			   if (turnstileRetries <= maxTurnstileRetries) {
+				   setTimeout(renderTurnstile, 500);
+			   }
+			   return;
+		   }
+
+		   turnstileContainer.dataset.rendered = '1';
+		   window.turnstile.render(turnstileContainer, {
+			   sitekey: '{{ config('turnstile.site_key', config('app.turnstile.site_key')) }}',
+			   callback: function(token) {
+				   setTurnstileToken(token);
+				   updateButtonState();
+			   },
+			   'expired-callback': function() {
+				   setTurnstileToken('');
+				   updateButtonState();
+			   },
+			   'error-callback': function() {
+				   setTurnstileToken('');
+				   updateButtonState();
+			   },
+			   theme: 'light',
+		   });
+	   }
 	   const fields = {
 		   first_name: {
 			   required: true,
@@ -161,7 +233,7 @@
 			   const input = document.getElementById(field);
 			   let value = input ? input.value : '';
 			   if (field === 'cf-turnstile-response') {
-				   value = document.querySelector('input[name="cf-turnstile-response"]').value;
+				   value = getTurnstileToken();
 			   }
 			   const errorMsg = validateField(field, value);
 			   if (errorMsg) valid = false;
@@ -198,31 +270,9 @@
 		   }
 	   });
 
-	   // Render Turnstile widget
-	   const turnstileContainer = document.getElementById('turnstile-container');
 	   if (turnstileContainer) {
-		   window.turnstileCallback = function(token) {
-			   let input = document.querySelector('input[name="cf-turnstile-response"]');
-			   if (!input) {
-				   input = document.createElement('input');
-				   input.type = 'hidden';
-				   input.name = 'cf-turnstile-response';
-				   form.appendChild(input);
-			   }
-			   input.value = token;
-			   updateButtonState();
-		   };
-		   window.turnstileExpiredCallback = function() {
-			   let input = document.querySelector('input[name="cf-turnstile-response"]');
-			   if (input) input.value = '';
-			   updateButtonState();
-		   };
-		   turnstile.render(turnstileContainer, {
-			   sitekey: '{{ config('turnstile.site_key', config('app.turnstile.site_key')) }}',
-			   callback: window.turnstileCallback,
-			   'expired-callback': window.turnstileExpiredCallback,
-			   theme: 'light',
-		   });
+		   loadTurnstileScript();
+		   renderTurnstile();
 	   }
 
 	   updateButtonState();
