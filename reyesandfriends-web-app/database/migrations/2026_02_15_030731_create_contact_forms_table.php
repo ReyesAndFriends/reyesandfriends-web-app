@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->string('cell_phone')->nullable();
+            $table->string('cellphone')->nullable();
             $table->text('message');
             $table->boolean('replied')->default(false);
             $table->foreignId('category_id')->constrained('contact_form_categories')->onDelete('cascade');
