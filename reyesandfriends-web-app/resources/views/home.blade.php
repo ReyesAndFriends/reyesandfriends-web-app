@@ -84,7 +84,7 @@
                        Visita nuestros <a href="{{ route('web_plans') }}" class="text-red-600 hover:underline font-semibold">Planes Web</a> o contáctanos a través de nuestro <a href="{{ route('contact') }}" class="text-red-600 hover:underline font-semibold">Formulario de Contacto</a> para obtener una cotización personalizada. Nos pondremos en contacto a la brevedad!
                     </p>
                 </div>
-                <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200" data-aos-once="true">
+                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                     <img src="{{ asset('img/home/equipo-robot.png') }}" alt="Ilustración de equipo de trabajo" class="w-2/3 h-auto pointer-events-none robot-fade-mask" />
                 </div>
             </div>
