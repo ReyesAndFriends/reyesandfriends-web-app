@@ -36,7 +36,7 @@
                         @endif
                         <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
                         <p class="text-white">{{ $service->description }}</p>
-                        <a href="" class="text-red-600 hover:underline font-semibold mt-4">Mas información</a>
+                        <a href="{{ route('services.show', $service->slug) }}" class="text-red-600 hover:underline font-semibold mt-4">Mas información</a>
                     </div>
                 @endforeach
             </div>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\FaqController;
 use App\Http\Controllers\Utils\CookiesController;
 use App\Http\Controllers\Web\PrivacyController;
 use App\Http\Controllers\Web\TermsController;
+use App\Http\Controllers\Web\ServicesController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/planes-web', [WebPlansController::class, 'index'])->name('web_plans');
@@ -29,6 +30,6 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/preguntas-frecuentes', [FaqController::class, 'index'])->name('faq');
 Route::get('/politica-privacidad', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/terminos-y-condiciones', [TermsController::class, 'index'])->name('terms');
-
+Route::get('/servicios/{slug}', [ServicesController::class, 'show'])->name('services.show');
 Route::get('/cookies', [CookiesController::class, 'index'])->name('cookies');
 Route::post('/cookies/accept', [CookiesController::class, 'store'])->name('cookies.accept');

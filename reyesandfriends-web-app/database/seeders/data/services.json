@@ -2,35 +2,35 @@
         {
             "name": "Paginas Web",
             "slug": "paginas-web",
-            "image": "/img/servicios/paginas-web.jpeg",
+            "image": "/img/services/paginas-web/logo.png",
             "description": "Desarrollamos páginas web personalizadas y optimizadas para tu negocio, utilizando las últimas tecnologías y tendencias de diseño.",
             "icon": "fa-globe"
         },
         {
             "name": "Software Empresarial",
             "slug": "software-empresarial",
-            "image": "/img/servicios/software-empresarial.webp",
+            "image": "/img/services/software-empresarial/logo.png",
             "description": "Desarrollamos soluciones empresariales a la medida para optimizar tus operaciones, automatizar procesos y mejorar la eficiencia de tu negocio.",
             "icon": "fa-building"
         },
         {
             "name": "Aplicaciones Móviles",
             "slug": "aplicaciones-moviles",
-            "image": "/img/servicios/aplicaciones-moviles.jpg",
+            "image": "/img/services/aplicaciones-moviles/logo.png",
             "description": "Creamos aplicaciones móviles para Android, ofreciendo experiencias nativas y multiplataforma.",
             "icon": "fa-mobile"
         },
         {
             "name": "E-commerce (Tiendas Online)",
             "slug": "tiendas-online",
-            "image": "/img/servicios/tiendas-online.webp",
+            "image": "/img/services/tiendas-online/logo.png",
             "description": "Desarrollamos soluciones de comercio electrónico personalizadas para impulsar tu negocio en línea.",
             "icon": "fa-shopping-cart"
         },
         {
             "name": "Hosting Minecraft (Servidores Minecraft)",
             "slug": "hosting-minecraft",
-            "image": "/img/servicios/hosting-minecraft.jpg",
+            "image": "/img/services/hosting-minecraft/logo.png",
             "description": "Ofrecemos servicios de hosting para servidores de Minecraft alojados en Chile, con panel administrativo, subdominio personalizado, soporte técnico y más...",
             "icon": "fa-cube"
         }
