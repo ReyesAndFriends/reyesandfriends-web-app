@@ -100,7 +100,7 @@ function showCookiesModal() {
     <div class="flex gap-2 w-full">
         <button class="bg-white text-black font-semibold px-3 py-1.5 rounded hover:bg-gray-200 transition flex-1 cursor-pointer text-sm" onclick="window.acceptCookies('all')">Aceptar todas</button>
         <button class="bg-gray-700 text-white font-semibold px-3 py-1.5 rounded hover:bg-gray-800 transition flex-1 cursor-pointer text-sm" onclick="window.acceptCookies('necessary')">Solo necesarias</button>
-        <a class="bg-red-700 text-white font-semibold px-3 py-1.5 rounded hover:bg-red-800 transition flex-1 cursor-pointer flex items-center justify-center text-sm" href='/'>Detalles</a>
+        <a class="bg-red-700 text-white font-semibold px-3 py-1.5 rounded hover:bg-red-800 transition flex-1 cursor-pointer flex items-center justify-center text-sm" href="{{ route('cookies') }}">Detalles</a>
     </div>
 </div>
     `;
