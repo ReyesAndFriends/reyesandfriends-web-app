@@ -10,12 +10,12 @@
         <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
         <div class="absolute inset-0 bg-red-950/90"></div>
         <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8 md:gap-10">
-            <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-right" data-aos-duration="1200">
+            <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-up" data-aos-duration="1200">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">¿Cómo Funcionan Nuestros Servicios?</h1>
                 <p class="text-xl sm:text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">tu solución digital innovadora</p>
                 <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-in-out" data-aos-duration="1200">Transforma tu negocio con tecnología a tu medida! Desarrollamos sitios web con contenido atractivo y actualizable, plataformas digitales y soluciones personalizadas para que tu empresa crezca y destaque en el mundo digital.</p>
             </div>
-            <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1200">
+            <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-down" data-aos-duration="1200">
                 <img src="{{ asset('img/how_works/ilustration.png') }}" alt="Proceso de trabajo" class="w-auto h-[240px] sm:h-[300px] md:h-auto md:w-3/4 max-w-full drop-shadow-xl pointer-events-none object-contain robot-fade-mask" />
             </div>
         </div>
@@ -46,13 +46,13 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16">
-                <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+                <div class="flex flex-col justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                     <h3 class="text-2xl font-bold mb-4">Nuestro Compromiso</h3>
                     <p class="text-lg text-gray-300 leading-relaxed max-w-3xl" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                       Nos tomamos con seriedad y dedicación cada proyecto, trabajando en estrecha colaboración con nuestros clientes para entender sus necesidades y objetivos. Nuestro equipo de expertos se compromete a entregar soluciones digitales de alta calidad que no solo cumplan, sino que superen las expectativas. Desde la planificación hasta la entrega final, nos aseguramos de que cada paso del proceso sea transparente y eficiente, brindando a nuestros clientes una experiencia excepcional y resultados que impulsan su negocio al siguiente nivel.
                     </p>
                 </div>
-                <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200" data-aos-once="true">
+                <div class="flex justify-center" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
                     <img src="{{ asset('img/how_works/equipo.jpg') }}" alt="Equipo" class="w-2/3 aspect-square object-cover rounded-lg drop-shadow-xl pointer-events-none" />
                 </div>
             </div>

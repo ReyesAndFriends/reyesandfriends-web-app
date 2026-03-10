@@ -8,7 +8,7 @@
 	<section class="py-16">
 		<div class="container mx-auto px-6">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 p-12 items-start bg-zinc-900 rounded-xl">
-                <div class="flex flex-col justify-center" data-aos="fade-right" data-aos-duration="1000">
+                <div class="flex flex-col justify-center" data-aos="fade-up" data-aos-duration="1000">
 					   @if($webPlan->images && count($webPlan->images) > 0)
 						   <div class="flex flex-col gap-4">
 							   <div class="w-full aspect-[16/9] mb-2 relative">
@@ -40,7 +40,7 @@
 						   </div>
 					   @endif
 				</div>
-				<div class="flex flex-col justify-center" data-aos="fade-left" data-aos-duration="1000">
+				<div class="flex flex-col justify-center" data-aos="fade-down" data-aos-duration="1000">
 					   <h1 class="text-4xl md:text-5xl text-white mb-4 font-bold" data-aos="zoom-in" data-aos-duration="800">
 						Plan <span class="text-red-600">{{ $webPlan->name }}</span>
 					</h1>

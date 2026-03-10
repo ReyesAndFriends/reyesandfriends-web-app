@@ -9,10 +9,10 @@
             <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
             <div class="absolute inset-0 bg-red-950/90"></div>
             <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8 md:gap-10">
-                <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-right" data-aos-duration="1200">
+                <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-up" data-aos-duration="1200">
                     <img src="{{ asset('img/web_plans/web_plans.png') }}" alt="Solución digital" class="w-auto h-[240px] sm:h-[300px] md:h-auto md:w-3/4 max-w-full drop-shadow-xl pointer-events-none object-contain" />
                 </div>
-                <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-left" data-aos-duration="1200">
+                <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-down" data-aos-duration="1200">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">Cotiza tu Plan Web</h1>
                     <p class="text-xl sm:text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">Personalizable y adaptable a tus necesidades</p>
                     <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-in-out" data-aos-duration="1200">¡Lleva tu presencia online al siguiente nivel con nuestros planes web por suscripción mensual! Personaliza el diseño, agrega contenido nuevo cada mes y olvídate de lo técnico: nosotros nos encargamos del hosting, mantenimiento y soporte. Tú solo enfócate en crecer, nosotros hacemos el resto.</p>

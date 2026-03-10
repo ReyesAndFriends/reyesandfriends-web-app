@@ -9,7 +9,7 @@
             <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale" />
             <div class="absolute inset-0 bg-red-950/90"></div>
             <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8 md:gap-10">
-                <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-right" data-aos-duration="1200">
+                <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-up" data-aos-duration="1200">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">{{ $service->name }}</h1>
                     <p class="text-lg sm:text-2xl md:text-2xl text-white mb-6 drop-shadow" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">{{ $service->description }}</p>
                     </div>
@@ -29,7 +29,7 @@
         <div class="space-y-16">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                 <h3 class="text-2xl font-bold text-white mb-4">El contenido que quieras</h3> 
                 <ul class="space-y-3 text-gray-300">
                 <li class="flex items-start gap-3">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="flex justify-center" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                 <img src="{{ asset('img/services/paginas-web/responsive-page.png') }}" alt="Página web responsive" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
             <div class="space-y-4" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
@@ -75,7 +75,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4" data-aos="fade-right" data-aos-delay="200" data-aos-once="true">
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
                 <h3 class="text-2xl font-bold text-white mb-4">Diseño personalizado</h3>
                 <ul class="space-y-3 text-gray-300">
                 <li class="flex items-start gap-3">
