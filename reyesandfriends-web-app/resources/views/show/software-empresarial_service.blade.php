@@ -29,72 +29,48 @@
         <div class="space-y-16">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 1</h3>
-                <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
-                </li>
-                </ul>
-            </div>
             <div class="flex justify-center" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 1" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/services/software-empresarial/security.png') }}" alt="Ilustración de seguridad empresarial" class="w-64 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+            </div>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                <h3 class="text-2xl font-bold text-white mb-4">Seguridad avanzada para tu información</h3>
+                <p class="text-zinc-200">
+                    Sabemos que <strong>los detalles importan.</strong> Por esta razón, verificamos cada línea de código o posible vulnerabilidad en tu software, asegurando que tu información y la de tus clientes esté siempre protegida.
+                </p>
             </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 2" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
-            </div>
             <div class="space-y-4" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 2</h3>
-                <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
-                </li>
-                </ul>
+                <h3 class="text-2xl font-bold text-white mb-4">Automatización de procesos</h3>
+                <p class="text-zinc-200">
+                    Documentas mucho? Realizas procesos tediosos manualmente? Nuestro software puede automatizar tareas repetitivas,
+                    liberando tiempo para que tu equipo se enfoque en lo que realmente importa: <strong>hacer crecer tu negocio</strong>.
+                </p>
+            </div>
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                <img src="{{ asset('img/services/software-empresarial/automatize.png') }}" alt="Robot automatizando tareas" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 3</h3>
-                <ul class="space-y-3 text-gray-300">
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
-                </li>
-                </ul>
-            </div>
             <div class="flex justify-center" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 3" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/services/software-empresarial/pos-terminal.png') }}" alt="Terminal POS" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                <h3 class="text-2xl font-bold text-white mb-4">Implementación de hardware o equipos</h3>
+                <p class="text-zinc-200">
+                    Quieres implementar un sistema de puntos de venta (POS), lectores de códigos de barra, o cualquier otro hardware especializado?
+                    Podemos integrar y configurar estos dispositivos para que funcionen perfectamente con tu software empresarial.
+                </p>
+            </div>
+            </div>
+
+            <div class="text-center space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                <h3 class="text-2xl font-bold text-white mb-4">Impulsa tu empresa al siguiente nivel</h3>
+                <p class="text-zinc-200 max-w-3xl mx-auto">
+                    No te quedes atrás. Da el paso hacia la transformación digital y lleva la eficiencia de tu negocio a nuevas alturas con soluciones empresariales a medida.
+                </p>
             </div>
         </div>
 
