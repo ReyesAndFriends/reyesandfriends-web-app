@@ -11,7 +11,7 @@
             <div class="relative z-10 container mx-auto flex flex-col md:flex-row items-center h-full px-6 gap-8 md:gap-10">
                 <div class="w-full md:w-1/2 text-white space-y-6" data-aos="fade-up" data-aos-duration="1200">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-duration="1200">{{ $service->name }}</h1>
-                    <p class="text-xl sm:text-2xl md:text-3xl text-red-600 mb-6 drop-shadow font-medium" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">{{ $service->description }}</p>
+                    <p class="text-lg sm:text-2xl md:text-2xl text-white mb-6 drop-shadow" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out" data-aos-duration="1200">{{ $service->description }}</p>
                     </div>
                 <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-down" data-aos-duration="1200">
                     <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" class="w-auto h-[240px] sm:h-[300px] md:h-auto md:w-3/4 max-w-full drop-shadow-xl pointer-events-none object-contain" />
@@ -22,7 +22,7 @@
     <section class="py-16">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl mb-12 text-center relative">
-            <span class="bg-zinc-900 px-4 relative z-10 text-white">Características</span>
+            <span class="bg-zinc-900 px-4 relative z-10 text-white">Características de nuestro Hosting</span>
             <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-red-700 -z-0"></div>
         </h2>
 
@@ -30,45 +30,45 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 1</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Mods, Plugins, Tu Mundo</h3>
                 <ul class="space-y-3 text-gray-300">
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    <span>Puedes utilizar cualquier mod o plugin que desees.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    <span>Tambien puedes subir tu propio mundo personalizado.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
+                    <span>Compatible con Minecraft, Forge, Mohist, Spigot, Paper y mas.</span>
                 </li>
                 </ul>
             </div>
             <div class="flex justify-center" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 1" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/services/hosting-minecraft/dawn-of.png') }}" alt="Ilustración de diseño Minecraft" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 2" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/services/hosting-minecraft/pterodactyl.svg') }}" alt="Integración de Pterodactyl" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
             <div class="space-y-4" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 2</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Panel de Control Pterodactyl</h3>
                 <ul class="space-y-3 text-gray-300">
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    <span>Tu servidor incluye una cuenta en nuestro panel con Pterodactyl.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    <span>Panel popular por su facilidad de uso y funcionalidades avanzadas.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
+                    <span>Gestiona servidor, instala mods/plugins y configura ajustes facilmente.</span>
                 </li>
                 </ul>
             </div>
@@ -76,26 +76,35 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="space-y-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                <h3 class="text-2xl font-bold text-white mb-4">Característica 3</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">Lleva tu servidor al siguiente nivel</h3>
                 <ul class="space-y-3 text-gray-300">
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                    <span>Si es Chileno... es bueno.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    <span>Unete a ReyesHosting.cl y disfruta un hosting confiable, rapido y seguro.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="text-red-600 font-bold mt-1">•</span>
-                    <span>Ut enim ad minim veniam, quis nostrud exercitation.</span>
+                    <span>Crea tu servidor y juega con tus amigos sin limites.</span>
                 </li>
                 </ul>
             </div>
             <div class="flex justify-center" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
-                <img src="" alt="Característica 3" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
+                <img src="{{ asset('img/services/hosting-minecraft/logo.png') }}" alt="Hosting de Minecraft" class="w-2/3 h-auto rounded-lg drop-shadow-xl pointer-events-none" />
             </div>
+
             </div>
+
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-12 w-full">
+            <a href="https://reyeshosting.cl" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-lg drop-shadow-lg">
+                Visitar ReyesHosting.cl
+            </a>
         </div>
 
     </div>
