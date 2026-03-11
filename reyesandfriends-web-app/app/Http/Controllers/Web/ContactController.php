@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Mail\ContactSubmitted;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use App\Models\ContactFormCategory;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -65,13 +67,19 @@ class ContactController extends Controller
             return redirect()->route('contact')->withErrors(['category_slug' => 'La categoría seleccionada es inválida.'])->withInput();
         }
 
-        ContactForm::create([
+        $contact = ContactForm::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'message' => $request->message,
             'category_id' => $category->id,
         ]);
+
+        Mail::to($contact->email)->queue(new ContactSubmitted(
+            firstName: ucfirst($contact->first_name),
+            lastName: ucfirst($contact->last_name),
+            message: $contact->message,
+        ));
 
         
 
