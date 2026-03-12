@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use App\Models\ContactFormReply;
 use Illuminate\Validation\ValidationException;
+use App\Mail\ContactReplied;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -68,6 +70,15 @@ class ContactController extends Controller
 
             $contact->replied = true;
             $contact->save();
+
+            Mail::to($contact->email)->queue(new ContactReplied(
+                clientName: $contact->first_name . ' ' . $contact->last_name,
+                clientContact: $contact->email,
+                replyMessage: $request->message,
+                responderName: $request->responder_name,
+                responderEmail: $request->responder_email,
+                clientContactMessage: $contact->message,
+            ));
 
             return response()->json(['message' => 'Se ha respondido al formulario de contacto exitosamente']);
         }
