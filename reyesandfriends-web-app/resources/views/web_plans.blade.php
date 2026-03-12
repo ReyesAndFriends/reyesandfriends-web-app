@@ -61,5 +61,34 @@
             </div>
         </div>
     </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl mb-12 text-center relative">
+                <span class="bg-zinc-900 px-4 relative z-10 text-white">Cotiza un Proyecto</span>
+                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-red-700 -z-0"></div>
+            </h2>
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-zinc-900 rounded-lg p-8 md:p-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-center">
+                        <img 
+                            src="{{ asset('img/web_plans/pos_demo.png') }}" 
+                            alt="Cotizar proyecto" 
+                            class="w-full max-w-2xl aspect-[16/9] object-cover pointer-events-none"
+                        />
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-4xl text-white mb-4 font-bold">¿Tienes un proyecto específico en mente?</h3>
+                        <p class="text-lg md:text-xl text-gray-200 mb-6">Si buscas algo más personalizado o tienes una idea específica, no dudes en contactarnos. Estamos aquí para ayudarte a hacer realidad tu proyecto digital.</p>
+                        <a href="{{ route('quote_project.form') }}" class="bg-red-800 hover:bg-red-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded transition-all duration-300 inline-flex items-center gap-3 font-semibold hover:scale-105 text-base sm:text-lg w-fit">
+                            Cotizar Proyecto
+                            <i class="fas fa-file-invoice ml-2"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
 @endsection
