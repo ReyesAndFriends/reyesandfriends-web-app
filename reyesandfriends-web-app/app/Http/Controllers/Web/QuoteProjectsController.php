@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\QuoteProject;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\QuoteProjectSubmitted;
 
 class QuoteProjectsController extends Controller
 {
@@ -114,7 +116,7 @@ class QuoteProjectsController extends Controller
             $normalizedPhone = $this->normalizeChileanPhone($request->client_phone);
 
             $quoteProject = QuoteProject::create([
-                'name' => trim($request->name),
+                'name' => ucfirst(trim($request->name)),
                 'description' => trim($request->description),
                 'client_name' => ucwords(trim($request->client_name)),
                 'client_email' => strtolower(trim($request->client_email)),
@@ -131,7 +133,19 @@ class QuoteProjectsController extends Controller
                     ]);
                 }
             }
+
+            Mail::to(config('mail.from.address'))->queue(new QuoteProjectSubmitted(
+                name: $quoteProject->name,
+                description: $quoteProject->description,
+                client_name: $quoteProject->client_name,
+                client_email: $quoteProject->client_email,
+                client_phone: $quoteProject->client_phone ?? 'No proporcionado',
+                extra_info: $quoteProject->extra_info ?? 'No proporcionada',
+            ));
+
         });
+
+        
 
         return redirect()->route('quote_project.form')->with('success', 'Tu solicitud de cotización fue enviada correctamente. Te contactaremos pronto.');
     }
