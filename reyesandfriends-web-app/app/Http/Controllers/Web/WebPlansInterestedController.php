@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\WebPlanInterested;
 use App\Models\WebPlan;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WebPlanInterestedSubmitted;
 
 class WebPlansInterestedController extends Controller
 {
@@ -70,13 +72,21 @@ class WebPlansInterestedController extends Controller
             return redirect()->route('web_plans.interest_form', ['slug' => $slug])->with('error', 'Ya existe una cotización registrada con este correo electrónico para este plan. Creada el ' . $existingInterest->created_at->format('d/m/Y') . '.');
         }
 
-        WebPlanInterested::create([
+        $webPlanInterested = WebPlanInterested::create([
             'web_plan_id' => $webPlan->id,
-            'first_name' => ucwords($request->first_name),
-            'last_name' => ucwords($request->last_name),
-            'email' => $request->email,
-            'cellphone' => $request->cellphone,
+            'first_name' => ucwords(trim($request->first_name)),
+            'last_name' => ucwords(trim($request->last_name)),
+            'email' => strtolower(trim($request->email)),
+            'cellphone' => $request->cellphone ? trim($request->cellphone) : null,
         ]);
+
+        Mail::to($webPlanInterested->email)->queue(new WebPlanInterestedSubmitted(
+            web_plan_name: $webPlan->name,
+            first_name: $webPlanInterested->first_name,
+            last_name: $webPlanInterested->last_name,
+            client_email: $webPlanInterested->email,
+            cellphone: $webPlanInterested->cellphone ?? 'No proporcionado',
+        ));
 
         return redirect()->route('web_plans.interest_form', ['slug' => $slug])->with('success', '¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
     }
