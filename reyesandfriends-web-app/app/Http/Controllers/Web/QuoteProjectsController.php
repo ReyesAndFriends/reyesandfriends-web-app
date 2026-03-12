@@ -134,7 +134,7 @@ class QuoteProjectsController extends Controller
                 }
             }
 
-            Mail::to(config('mail.from.address'))->queue(new QuoteProjectSubmitted(
+            Mail::to($quoteProject->client_email)->queue(new QuoteProjectSubmitted(
                 name: $quoteProject->name,
                 description: $quoteProject->description,
                 client_name: $quoteProject->client_name,
