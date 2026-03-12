@@ -5,9 +5,12 @@ Tu solicitud de cotización de proyecto ha sido recibida.
 Nuestro equipo revisará los detalles y se pondrá en contacto contigo lo antes posible.
 
 Un resumen de tu solicitud:
+
+<x-mail::panel>
 - **Nombre del proyecto:** {{ $name }}
 - **Descripción:** {{ $description }}
 - **Información adicional:** {{ $extra_info }}
+</x-mail::panel>
 
 Vamos a analizar tu solicitud al detalle y nos comunicaremos contigo para discutir los próximos pasos.
 
