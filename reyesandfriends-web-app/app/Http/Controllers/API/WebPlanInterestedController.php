@@ -20,7 +20,7 @@ class WebPlanInterestedController extends Controller
         $interest = WebPlanInterested::find($id);
 
         if (!$interest) {
-            return response()->json(['message' => 'Interesado en plan web no encontrado'], 404);
+            return response()->json(['message' => 'Interesado en plan web no encontrado.'], 404);
         }
 
         return response()->json($interest);

@@ -23,7 +23,7 @@ class ContactController extends Controller
         $contact = ContactForm::find($id);
 
         if (!$contact) {
-            return response()->json(['message' => 'Formulario de contacto no encontrado'], 404);
+            return response()->json(['message' => 'Formulario de contacto no encontrado.'], 404);
         }
 
         return response()->json($contact);
@@ -34,7 +34,7 @@ class ContactController extends Controller
         $contact = ContactForm::find($id);
 
         if (!$contact) {
-            return response()->json(['message' => 'Formulario de contacto no encontrado'], 404);
+            return response()->json(['message' => 'Formulario de contacto no encontrado.'], 404);
         }
 
         try {
@@ -52,13 +52,13 @@ class ContactController extends Controller
             ]);
         } catch (ValidationException $e) {
             return response()->json([
-                'message' => 'Datos inválidos',
+                'message' => 'Datos inválidos.',
                 'errors' => $e->errors(),
             ], 422);
         }
 
         if ($contact->replied == true) {
-            return response()->json(['message' => 'Este formulario de contacto ya ha sido respondido'], 400);
+            return response()->json(['message' => 'Este formulario de contacto ya ha sido respondido.'], 400);
         } else {
 
             ContactFormReply::create([
@@ -80,7 +80,7 @@ class ContactController extends Controller
                 clientContactMessage: $contact->message,
             ));
 
-            return response()->json(['message' => 'Se ha respondido al formulario de contacto exitosamente']);
+            return response()->json(['message' => 'Se ha respondido al formulario de contacto exitosamente.']);
         }
     }
 }
