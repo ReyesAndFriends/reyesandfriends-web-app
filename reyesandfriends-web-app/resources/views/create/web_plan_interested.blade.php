@@ -5,9 +5,13 @@
 @section('keywords', 'planes web, contacto, interesado, desarrollo web, diseño web, soluciones digitales, chile')
 
 @section('content')
-	<section class="py-16">
+	<section class="relative isolate py-16 overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="max-w-screen-xl max-md:max-w-xl mx-auto bg-black py-8 px-12 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+                <img src="{{ asset('img/background/background-web.jpg') }}" alt="Ilustración de fondo" class="absolute inset-0 w-full h-full object-cover grayscale" />
+                <div class="absolute inset-0 bg-red-950/90"></div>
+            </div>
+            <div class="relative z-20 max-w-screen-xl max-md:max-w-xl mx-auto bg-black py-8 px-12 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-duration="1200">
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 lg:gap-x-12">
                     <div class="lg:col-span-2">
                         <div>
